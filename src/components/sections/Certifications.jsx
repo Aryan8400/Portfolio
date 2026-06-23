@@ -12,7 +12,7 @@ export default function Certifications() {
         <SectionHeading
           tag="Certifications"
           title="Credentials & Achievements"
-          subtitle="Professional certifications and learning milestones"
+          subtitle="Certifications validating my web development and cloud skills"
         />
 
         <motion.div
@@ -30,12 +30,32 @@ export default function Certifications() {
                     Placeholder
                   </span>
                 )}
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 light:from-indigo-100 light:to-violet-100">
-                  <HiBadgeCheck className="h-7 w-7 text-indigo-500 light:text-indigo-600" />
-                </div>
+                {cert.image ? (
+                  <div className="mx-auto mb-4 h-20 w-20 overflow-hidden rounded-3xl border border-indigo-200 bg-white/10 shadow-inner">
+                    <img
+                      src={cert.image}
+                      alt={`${cert.title} badge`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 light:from-indigo-100 light:to-violet-100">
+                    <HiBadgeCheck className="h-7 w-7 text-indigo-500 light:text-indigo-600" />
+                  </div>
+                )}
                 <h3 className="text-heading font-semibold">{cert.title}</h3>
                 <p className="text-muted mt-1 text-sm">{cert.issuer}</p>
                 <p className="mt-3 text-xs font-medium text-indigo-500 light:text-indigo-600">{cert.year}</p>
+                {cert.url && (
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block text-sm font-medium text-indigo-500 transition-colors hover:text-indigo-600 light:hover:text-indigo-500"
+                  >
+                    View Badge
+                  </a>
+                )}
               </GlassCard>
             </motion.div>
           ))}

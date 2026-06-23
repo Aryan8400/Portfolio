@@ -5,22 +5,28 @@ import lmsPortalImage from '../assets/lms-portal.png'
 import epcImage from '../assets/epc.png'
 import collegeWebsiteImage from '../assets/hetauuda city.png'
 import profileImage from '../assets/profile.jpeg'
+import awsBadgeImage from '../assets/AWS Academy Graduate - Cloud Foundations - Training Badge.png'
+import awsDataEngineeringBadgeImage from '../assets/AWS Academy Graduate - Data Engineering - Training Badge.png'
+import awsMLFoundationsBadgeImage from '../assets/AWS Academy Graduate - Machine Learning Foundations - Training Badge.png'
+import awsMLNLPBadgeImage from '../assets/AWS Academy Graduate - Machine Learning for Natural Language Processing - Training Badge.png'
+import resumePdf from '../assets/cv/Aryan_Jaiswal_CV.pdf'
 
 export const personalInfo = {
   name: 'Aryan Jaiswal',
   role: 'Full Stack Developer',
   education: 'BSc (Hons) Computing — First Class Honours',
-  location: 'Kathmandu, Nepal',
-  email: 'aryan.jaiswal@example.com',
+  location: 'Damak-Jhapa, Nepal',
+  email: 'aj628980@gmail.com',
+  phone: '+977 9817900948',
   yearsOfExperience: 3,
   intro:
-    'I craft elegant, performant web experiences with modern technologies. Passionate about building scalable applications that solve real-world problems.',
+    'I design and build modern websites and web applications using React, Tailwind CSS, and modern web practices. I focus on creating polished, responsive experiences that solve real problems for users and businesses.',
   profileImage,
-  resumeUrl: '/resume.pdf',
+  resumeUrl: resumePdf,
   social: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    facebook: 'https://facebook.com',
+    github: 'https://github.com/Aryan8400',
+    linkedin: 'https://www.linkedin.com/feed/',
+    facebook: 'https://www.facebook.com/aryan.jaiswal.3532507',
   },
 }
 
@@ -324,27 +330,32 @@ export const stats = [
 
 export const certifications = [
   {
-    title: 'Web Development Fundamentals',
-    issuer: 'Online Platform',
-    year: '2023',
-    placeholder: true,
-  },
-  {
-    title: 'React Developer Certification',
-    issuer: 'Online Platform',
+    title: 'AWS Academy Graduate - Cloud Foundations - Training Badge',
+    issuer: 'Amazon Web Services',
     year: '2024',
-    placeholder: true,
+    url: 'https://www.credly.com/badges/e06412c8-113a-4e98-810d-b812dae8c8f4/print',
+    image: awsBadgeImage,
   },
   {
-    title: 'JavaScript Algorithms',
-    issuer: 'Online Platform',
-    year: '2023',
-    placeholder: true,
-  },
-  {
-    title: 'Full Stack Development',
-    issuer: 'Online Platform',
+    title: 'AWS Academy Graduate - Machine Learning Foundations - Training Badge',
+    issuer: 'Amazon Web Services',
     year: '2024',
-    placeholder: true,
+    url: 'https://www.credly.com/badges/895ecd61-537d-49be-94c9-dc546317ca60/print',
+    image: awsMLFoundationsBadgeImage,
   },
+  {
+    title: 'AWS Academy Graduate - Data Engineering - Training Badge',
+    issuer: 'Amazon Web Services',
+    year: '2024',
+    url: 'https://www.credly.com/badges/4127eba5-71bb-4449-89af-a816be299674/print',
+    image: awsDataEngineeringBadgeImage,
+  },
+  {
+    title: 'AWS Academy Graduate - Machine Learning for Natural Language Processing - Training Badge',
+    issuer: 'Amazon Web Services',
+    year: '2024',
+    url: 'https://www.credly.com/badges/f05edf3d-8680-47a9-abe0-9deb2f6f9ff6/print',
+    image: awsMLNLPBadgeImage,
+  },
+  
 ]

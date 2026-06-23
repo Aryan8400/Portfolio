@@ -25,7 +25,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="mb-4 text-sm font-medium tracking-wider text-indigo-500 uppercase light:text-indigo-600"
           >
-            Welcome to my portfolio
+            Welcome to my web portfolio
           </motion.p>
 
           <motion.h1

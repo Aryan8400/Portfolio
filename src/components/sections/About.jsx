@@ -48,9 +48,8 @@ export default function About() {
               <span className="font-medium text-indigo-500 light:text-indigo-600">
                 {personalInfo.yearsOfExperience}+ years
               </span>{' '}
-              of learning and hands-on development, I specialize in building
-              full-stack web applications that are fast, accessible, and
-              user-friendly.
+              of experience, I specialize in building full-stack web
+              applications that are fast, accessible, and user-friendly.
             </p>
             <p className="text-body mt-4 text-base leading-relaxed md:text-lg">
               From responsive frontends with React and Tailwind CSS to robust

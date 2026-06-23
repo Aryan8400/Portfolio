@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
-import { HiMail, HiLocationMarker } from 'react-icons/hi'
+import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
 import { personalInfo } from '../../data/portfolio'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
@@ -17,20 +18,50 @@ const socialLinks = [
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const emailServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+  const emailTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const emailPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setErrorMessage('')
+
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setStatus('error')
+      setErrorMessage(
+        'EmailJS is not configured. Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to your .env file.'
+      )
+      return
+    }
+
     setStatus('sending')
 
-    setTimeout(() => {
+    try {
+      await emailjs.send(
+        emailServiceId,
+        emailTemplateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        emailPublicKey
+      )
+
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
       setTimeout(() => setStatus(''), 3000)
-    }, 1000)
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage('Unable to send message. Please try again later.')
+      console.error('EmailJS error:', error)
+    }
   }
 
   return (
@@ -68,6 +99,10 @@ export default function Contact() {
                 <div className="text-body flex items-center gap-3 text-sm">
                   <HiLocationMarker className="h-5 w-5 text-indigo-500 light:text-indigo-600" />
                   {personalInfo.location}
+                </div>
+                <div className="text-body flex items-center gap-3 text-sm">
+                  <HiPhone className="h-5 w-5 text-indigo-500 light:text-indigo-600" />
+                  {personalInfo.phone}
                 </div>
               </div>
 
@@ -158,9 +193,12 @@ export default function Contact() {
                       : 'Send Message'}
                 </Button>
 
-                <p className="text-muted text-center text-xs">
-                  EmailJS integration ready — add your service credentials in Contact.jsx
-                </p>
+                {status === 'error' && (
+                  <p className="text-red-500 text-center text-sm">
+                    {errorMessage}
+                  </p>
+                )}
+
               </form>
             </GlassCard>
           </motion.div>

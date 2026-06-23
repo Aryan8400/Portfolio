@@ -22,7 +22,7 @@ export default function Experience() {
         <SectionHeading
           tag="Experience"
           title="My Journey"
-          subtitle="Education, learning milestones, and professional growth"
+          subtitle="A timeline of web development education, training, and professional growth"
         />
 
         <div className="relative mx-auto max-w-3xl">
