@@ -15,7 +15,7 @@ export const personalInfo = {
   name: 'Aryan Jaiswal',
   role: 'Full Stack Developer',
   education: 'BSc (Hons) Computing — First Class Honours',
-  location: 'Damak-Jhapa, Nepal',
+  location: 'Kathmandu, Nepal',
   email: 'aj628980@gmail.com',
   phone: '+977 9817900948',
   yearsOfExperience: 3,
